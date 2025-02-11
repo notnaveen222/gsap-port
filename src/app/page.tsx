@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar/Navbar";
 export default function Home() {
   useEffect(() => {
     const lenis = new Lenis();
-    function raf(time: any) {
+    function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }

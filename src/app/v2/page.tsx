@@ -1,15 +1,26 @@
 "use client";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useEffect } from "react";
+import Lenis from "lenis";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "./projects.css";
-import { useState } from "react";
+import "@/components/Projects/projects.css";
+
+import Hero from "@/components/Hero/Hero";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Projects() {
-  const [color, setColor] = useState("#FFF");
-  useGSAP(() => {
+export default function V2() {
+  useEffect(() => {
+    const lenis = new Lenis();
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  });
+  const color = "#000";
+  useGSAP((): ReturnType<typeof useGSAP> | void => {
     gsap.to(".projectsBG", {
       backgroundColor: color,
       duration: 1,
@@ -77,23 +88,11 @@ export default function Projects() {
         stagger: 0.2,
       }
     );
-  });
-  const handleClick = () => {
-    if (color == "#FFF") {
-      setColor("#000");
-      console.log("Changed to black");
-    } else {
-      setColor("#FFF");
-    }
-  };
+  }, []);
+
   return (
     <div className="">
-      <button
-        className="absolute top-20 left-0 border border-white"
-        onClick={handleClick}
-      >
-        set color variant
-      </button>
+      <Hero />
       <div className="relative">
         <div className="absolute top-0 flex -z-10 h-screen ">
           <div className="bar bar1"></div>
@@ -104,6 +103,7 @@ export default function Projects() {
         </div>
         <div className="projectsBG h-screen z-10 bg-white">Projects</div>
       </div>
+      <div className="h-screen bg-purple-500"></div>
     </div>
   );
 }
