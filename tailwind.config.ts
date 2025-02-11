@@ -12,6 +12,12 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        thunder: ["var(--font-thunderFont)"],
+        interTight: ["var(--font-interTight)"],
+        geistMono: ["var(--font-geist-mono)"],
+        geistSans: ["var(--font-geist-sans)"],
+      },
     },
   },
   plugins: [],
