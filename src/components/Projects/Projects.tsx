@@ -3,15 +3,15 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./projects.css";
-import { useState } from "react";
+import Image from "next/image";
+import LaptopImage from "@/images/laptop-removebg-preview.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
-  const [color, setColor] = useState("#FFF");
   useGSAP(() => {
     gsap.to(".projectsBG", {
-      backgroundColor: color,
+      /* This isnt Doing Anyting, check and remove */ backgroundColor: "#FFF",
       duration: 1,
       scrollTrigger: {
         trigger: ".projectsBG",
@@ -21,7 +21,7 @@ export default function Projects() {
       },
     });
     gsap.to(".bar", {
-      backgroundColor: color,
+      /* This one also no Functionality */ backgroundColor: "#FFF",
       duration: 1,
       scrollTrigger: {
         trigger: ".bar",
@@ -30,6 +30,23 @@ export default function Projects() {
         scrub: 1.5,
       },
     });
+    gsap.fromTo(
+      ".laptop-image",
+      {
+        y: 200,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        scrollTrigger: {
+          trigger: ".laptop-image",
+          start: "top bottom" /*top of elem meets center of vp*/,
+          end: "top top",
+          scrub: true,
+        },
+      }
+    );
     gsap.fromTo(
       ".bar2",
       {
@@ -77,23 +94,26 @@ export default function Projects() {
         stagger: 0.2,
       }
     );
+    gsap.fromTo(
+      ".container",
+      {
+        backgroundColor: "#FFF",
+      },
+      {
+        backgroundColor: "#000",
+        scrollTrigger: {
+          trigger: ".container",
+          start: "bottom center",
+          end: "bottom top-=50px",
+          scrub: true,
+        },
+        stagger: 0.2,
+      }
+    );
   });
-  const handleClick = () => {
-    if (color == "#FFF") {
-      setColor("#000");
-      console.log("Changed to black");
-    } else {
-      setColor("#FFF");
-    }
-  };
+
   return (
     <div className="">
-      <button
-        className="absolute top-20 left-0 border border-white"
-        onClick={handleClick}
-      >
-        set color variant
-      </button>
       <div className="relative">
         <div className="absolute top-0 flex -z-10 h-screen ">
           <div className="bar bar1"></div>
@@ -102,7 +122,22 @@ export default function Projects() {
           <div className="bar bar4"></div>
           <div className="bar bar2"></div>
         </div>
-        <div className="projectsBG h-screen z-10 bg-white">Projects</div>
+        <div className="projectsBG h-screen grid grid-cols-2 z-0 px-10 bg-white">
+          <div>
+            <div className="text-black text-6xl mb-5">My Projects</div>
+            <div className="text-black text-lg">
+              A glimpse into my coding journey and designs.
+            </div>
+          </div>
+          <div className="">
+            <Image
+              className="rotate-6 laptop-image"
+              src={LaptopImage}
+              alt="laptop image"
+            ></Image>
+            <div className="text-5xl text-black">Code Drop</div>
+          </div>
+        </div>
       </div>
     </div>
   );

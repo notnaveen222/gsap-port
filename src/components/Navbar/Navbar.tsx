@@ -1,6 +1,6 @@
 import FlippingText from "./FlippingText";
 import { motion } from "motion/react";
-
+import "./navbar.css";
 export default function Navbar() {
   return (
     <motion.div

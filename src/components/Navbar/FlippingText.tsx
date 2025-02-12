@@ -12,7 +12,7 @@ export default function FlippingText({ title, styles }: FlippingTextprops) {
     <motion.div
       initial="initial"
       whileHover="hovered"
-      className={`${styles} relative block overflow-hidden  whitespace-normal`}
+      className={`${styles} nav-button relative block overflow-hidden  whitespace-normal`}
     >
       <motion.div
         variants={{

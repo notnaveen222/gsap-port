@@ -4,10 +4,13 @@ import Projects from "@/components/Projects/Projects";
 import { useEffect } from "react";
 import Lenis from "lenis";
 import Navbar from "@/components/Navbar/Navbar";
+import About from "@/components/About/about";
 
 export default function Home() {
   useEffect(() => {
-    const lenis = new Lenis();
+    const lenis = new Lenis({
+      wheelMultiplier: 0.9,
+    });
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -19,7 +22,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Projects />
-      <div className="h-screen bg-purple-500"></div>
+      <About />
+      <div className="bg-purple-400 h-screen"></div>
     </>
   );
 }
