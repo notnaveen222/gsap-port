@@ -7,3 +7,6 @@ body {
   color: white;
   overflow-x: hidden;
 }
+.about-text {
+  opacity: 0; /* Ensures it starts invisible */
+}

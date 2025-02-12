@@ -91,19 +91,31 @@ export default function About() {
         }
       );
     });
+
     gsap.fromTo(
       ".about-text",
+      { opacity: 1 },
       {
         opacity: 0,
-      },
+        scrollTrigger: {
+          trigger: ".about-text",
+          scrub: true,
+          start: "bottom center",
+          end: "bottom+=300px center-=200px",
+        },
+      }
+    );
+    gsap.fromTo(
+      ".about-text",
+      { opacity: 0 },
       {
         opacity: 1,
         scrollTrigger: {
           trigger: ".about-text",
           scrub: true,
-          // toggleActions: "play reverse none none",
+          markers: true,
           start: "top top+=100px",
-          end: "top top-=100px",
+          end: "top top",
         },
       }
     );
@@ -132,8 +144,8 @@ export default function About() {
         </div>
       </div>
 
-      <div className="h-[200vh] bg-black">
-        <div className="h-screen top-0 flex justify-center items-center text-6xl mx-auto text-center w-3/5 sticky z-20 about-text font-semibold tracking-wider font-interTight">
+      <div className="h-[140vh] bg-black">
+        <div className="h-screen top-0 flex justify-center items-center text-6xl mx-auto text-center w-3/5  sticky z-20 about-text font-semibold tracking-wider font-interTight">
           Im Naveen, 19, Second Year Student, pursuing my CSE Degree in VIT
         </div>
       </div>
