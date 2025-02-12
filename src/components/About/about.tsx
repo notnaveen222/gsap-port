@@ -113,7 +113,6 @@ export default function About() {
         scrollTrigger: {
           trigger: ".about-text",
           scrub: true,
-          markers: true,
           start: "top top+=100px",
           end: "top top",
         },
