@@ -121,7 +121,7 @@ export default function About() {
   });
   return (
     <div className="relative w-screen  bg-black">
-      <div className=" z-10 left-0 right-0 h-screen absolute mix-blend-difference">
+      <div className=" z-20 left-0 right-0 h-screen absolute mix-blend-difference">
         <div className="flex justify-evenly mt-10 particle-layer-1 bg-transparent mix-blend-difference ">
           <div className="particle  particle-speed-4 particlev2"></div>
           <div className="particle  particle-speed-2 particlev3"></div>
@@ -144,7 +144,7 @@ export default function About() {
       </div>
 
       <div className="h-[140vh] bg-black">
-        <div className="h-screen top-0 flex justify-center items-center text-6xl mx-auto text-center w-3/5  sticky z-20 about-text font-semibold tracking-wider font-interTight">
+        <div className="h-screen top-0 flex justify-center items-center text-7xl mx-auto text-center w-4/5  sticky z-10 about-text font-semibold tracking-wider font-interTight">
           Im Naveen, 19, Second Year Student, pursuing my CSE Degree in VIT
         </div>
       </div>
